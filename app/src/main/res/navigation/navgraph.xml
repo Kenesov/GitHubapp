@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        tools:layout="@layout/splashfragment"
+        android:name="com.example.githubapp.ui.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        tools:layout="@layout/loginfragment"
+        android:name="com.example.githubapp.ui.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        tools:layout="@layout/homefragment"
+        android:name="com.example.githubapp.ui.main.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_repositoriesFragment"
+            app:destination="@id/repositoriesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exploreFragment"
+        tools:layout="@layout/explorefragment"
+        android:name="com.example.githubapp.ui.explore.ExploreFragment"
+        android:label="ExploreFragment" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        tools:layout="@layout/notificationsfragment"
+        android:name="com.example.githubapp.ui.notification.NotificationFragment"
+        android:label="NotificationFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        tools:layout="@layout/profilefragment"
+        android:name="com.example.githubapp.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_repoProfileFragment"
+            app:destination="@id/repoProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repositoriesFragment"
+        tools:layout="@layout/repositoryfragment"
+        android:name="com.example.githubapp.ui.repository.ReporisotryFragment"
+        android:label="RepositoriesFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        tools:layout="@layout/searchfragment"
+        android:name="com.example.githubapp.ui.search.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_repositorySearchFragment"
+            app:destination="@id/repositorySearchFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_usernameSearchFragment"
+            app:destination="@id/usernameSearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repositorySearchFragment"
+        tools:layout="@layout/fragment_search_repository"
+        android:name="com.example.githubapp.ui.search.RepositorySearchFragment"
+        android:label="RepositorySearchFragment" >
+
+        <argument
+            android:name="textSearch"
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/usernameSearchFragment"
+        tools:layout="@layout/search_user_name_fragment"
+        android:name="com.example.githubapp.ui.search.UsernameSearchFragment"
+        android:label="UsernameSearchFragment" >
+
+        <argument
+            android:name="textSearch"
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/repoProfileFragment"
+        android:name="com.example.githubapp.ui.profile.ProfileRepoFragment"
+        android:label="RepoProfileFragment" />
+</navigation>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="#14000000"
+    android:background="@color/white"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/item_text_project_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LogoCarQuiz"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/star_prof"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_text_project_prof" />
+
+    <TextView
+        android:id="@+id/item_text_star_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@id/star_prof"
+        app:layout_constraintStart_toEndOf="@id/star_prof"
+        app:layout_constraintTop_toTopOf="@id/star_prof" />
+
+    <ImageView
+        android:id="@+id/circle_prof"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_circle"
+        app:layout_constraintBottom_toBottomOf="@id/star_prof"
+        app:layout_constraintStart_toEndOf="@id/item_text_star_prof"
+        app:layout_constraintTop_toTopOf="@id/star_prof" />
+
+    <TextView
+        android:id="@+id/item_circle_text_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kotlin"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@id/circle_prof"
+        app:layout_constraintStart_toEndOf="@id/circle_prof"
+        app:layout_constraintTop_toTopOf="@id/circle_prof" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_img_item"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:padding="4dp"
+        android:src="@drawable/img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_username_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Kenesov Adilxan"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@id/text_name_item"
+        app:layout_constraintStart_toEndOf="@id/profile_img_item"
+        app:layout_constraintTop_toTopOf="@id/profile_img_item" />
+
+    <TextView
+        android:id="@+id/text_name_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ChatApp"
+        android:textSize="19dp"
+        android:layout_marginTop="2dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/profile_img_item"
+        app:layout_constraintStart_toStartOf="@id/text_username_item"
+        app:layout_constraintTop_toBottomOf="@id/text_username_item" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
