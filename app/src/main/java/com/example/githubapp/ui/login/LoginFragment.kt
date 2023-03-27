@@ -12,6 +12,7 @@ import com.example.githubapp.R
 import com.example.githubapp.ViewModel.MainViewModel
 import com.example.githubapp.databinding.LoginfragmentBinding
 import com.example.githubapp.models.Local.LocalStorage
+import com.example.githubapp.utils.toast
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,17 +26,22 @@ class LoginFragment: Fragment(R.layout.loginfragment) {
 
         binding = LoginfragmentBinding.bind(view)
 
-        initObservers()
-
-        binding.btnSignIn.setOnClickListener {
-            val intent = Intent(
-                Intent.ACTION_VIEW, Uri.parse(
-                    "https://github.com/login/oauth/authorize?client_id=8f3cf5f09bd0c93a0528&scope=repo"
-                )
-            )
-            startActivity(intent)
-        }
+        initListeners()
     }
+
+    private fun initListeners() {
+        binding.apply {
+
+            btnSignIn.setOnClickListener {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://github.com/login/oauth/authorize?client_id=8f3cf5f09bd0c93a0528&scope=repo")
+                )
+                startActivity(intent)
+            }
+            }
+        }
+
 
     override fun onResume() {
         super.onResume()
@@ -43,11 +49,17 @@ class LoginFragment: Fragment(R.layout.loginfragment) {
         if (uri != null) {
             val code = uri.getQueryParameter("code")
             if (code != null) {
-                Toast.makeText(requireContext(), "Login succes: $code", Toast.LENGTH_SHORT).show()
+                toast("Token kelmedi: $code")
                 lifecycleScope.launchWhenResumed {
                     viewModel.getAccessTokenFlow
                 }
+                findNavController().navigate(
+                    LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+                )
+            }else if ((uri.getQueryParameter("error")) != null){
+                 toast("Something went wrong!")
             }
+            initObservers()
         }
     }
 
@@ -55,6 +67,10 @@ class LoginFragment: Fragment(R.layout.loginfragment) {
       viewModel.getAccessTokenFlow.onEach {
           LocalStorage().isLogin = true
           LocalStorage().token = it.access_token
+      }.launchIn(lifecycleScope)
+
+      viewModel.messageFlow.onEach {
+          toast("Token kelmey qaldi")
       }.launchIn(lifecycleScope)
 
   }

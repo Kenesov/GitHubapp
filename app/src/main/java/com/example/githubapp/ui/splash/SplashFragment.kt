@@ -22,14 +22,14 @@ class SplashFragment : Fragment(R.layout.splashfragment) {
 
         if (LocalStorage().isLogin) {
             lifecycleScope.launchWhenResumed {
-                delay(3000)
+                delay(200)
                 findNavController().navigate(
                     SplashFragmentDirections.actionSplashFragmentToHomeFragment()
                 )
             }
         }else {
             lifecycleScope.launchWhenResumed {
-                delay(3000)
+                delay(200)
                 findNavController().navigate(
                     SplashFragmentDirections.actionSplashFragmentToLoginFragment()
                 )

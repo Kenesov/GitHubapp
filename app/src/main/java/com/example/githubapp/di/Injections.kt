@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val appModule = module {
     single<MainRepository> {
-        MainRepository(api = get() )
+        MainRepository(api = get())
     }
     single<TodoApi> {
         provideTodoApi(retrofit = get())

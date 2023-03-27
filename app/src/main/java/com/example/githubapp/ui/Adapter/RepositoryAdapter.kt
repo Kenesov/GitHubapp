@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.example.githubapp.R
 import com.example.githubapp.databinding.ItmeRepositoryBinding
 import com.example.githubapp.models.Data.GetUserRepositoriesData
@@ -15,6 +16,16 @@ class RepositoryAdapter: ListAdapter<GetUserRepositoriesData, RepositoryAdapter.
 
         fun bind(){
 
+            val d = getItem(adapterPosition)
+
+            binding.apply {
+                Glide.with(profileImgItem)
+                    .load(d.owner.avatar_url)
+                    .into(profileImgItem)
+
+                textNameItem.text = d.name
+                textUsernameItem.text = d.owner.login
+            }
         }
     }
 

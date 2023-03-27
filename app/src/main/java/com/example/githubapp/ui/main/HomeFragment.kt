@@ -16,7 +16,7 @@ class HomeFragment: Fragment(R.layout.homefragment) {
 
         binding = HomefragmentBinding.bind(view)
 
-
+        initListeners()
     }
 
     private fun initListeners() {

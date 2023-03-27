@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bnv_main)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
@@ -28,6 +28,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun visilityOfBottomNavigation(visibility: Int) {
-        binding.bnvMain.visibility = visibility
+        binding.bottomNavigation.visibility = visibility
     }
 }

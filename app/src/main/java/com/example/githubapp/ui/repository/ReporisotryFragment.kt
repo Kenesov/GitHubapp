@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.githubapp.MainActivity
 import com.example.githubapp.R
 import com.example.githubapp.ViewModel.MainViewModel
@@ -36,7 +37,7 @@ class ReporisotryFragment: Fragment(R.layout.repositoryfragment) {
 
         binding.apply {
             icBackRepo.setOnClickListener {
-
+             findNavController().popBackStack()
             }
         }
     }
